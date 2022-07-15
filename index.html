@@ -1,0 +1,125 @@
+<!--page designed and developed by khulysojohn-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--meta tags-->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--external links-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>IQ page</title>
+        <style>
+            
+            body{
+            text-align: center;
+            background-color: blueviolet;
+        }
+        #show{
+            width: 230px;
+            height: 50px;
+            background-color: aliceblue;
+            font-size: 20px;
+        }
+
+        @media only screen and (max-width: 600px){
+          body{
+              background-color: cadetblue;
+              width: 100%;
+              overflow-y: hidden;
+          }
+          
+          h1{
+            color: blue;
+    
+          }    
+
+        }
+        
+        </style>
+    </head>
+    <body>
+    <div>
+        <h1>
+            IQ DETECTOR
+        </h1>
+        
+            <label for="textbox" class="text">Type here:</label><br>
+            <textarea name="tweet" id="textbox" class="form-control" rows="10" cols="60"></textarea>
+            <p>
+                <label for="show">Results: </label>
+                <span id="show"></span>
+            </p>
+            <br>
+            <button onclick="countGrade() "type="submit">Submit</button>
+        </div>    
+            <footer>
+                <form method="post" action="">
+                    <label for="name">Name</label><br>
+                    <input type="text" name="" autocomplete="on" required><br>
+                    <label>E-mail</label><br>     
+                    <input type="email" name="" required><br>
+                    <label>Your message</label><br>
+                    <textarea ></textarea><br>
+                    <button type="submit">Send</button>
+                </form>
+
+                <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                <a href="https://github.com" class="fa fa-github"></a>
+                <a href="https://codepen.com" class="fa fa-codepen"></a>
+                <br>
+                <span>
+                    &copy;copyright:2022 coded by khulysojohn.
+                </span>
+                
+            </footer>
+        
+        <script>
+            
+            function countGrade()
+            {
+
+                  var text = document.getElementById("textbox").value;
+                  var letter = 0;
+                  var word = 0;
+                  var sentence = 0;
+
+                  for ( var i = 0; i < text.length; i++){
+                    letter ++;
+                    var char = text[i];
+                    
+                    if (char == " "){
+                        word++;
+                    }
+                    if ( char == "."){
+                        sentence++;
+                    }
+                    
+                  }
+
+                var List = letter + word + sentence;
+                var index = List / 250;
+        
+                let a = Math.round(index);
+                
+
+                if (a < 1)
+                {
+                    document.getElementById("show").innerHTML = "Below Grade 1";
+                }
+                else if (a > 12)
+                {
+                    document.getElementById("show").innerHTML = "Above Grade 12";
+                }
+                else
+                {
+                    document.getElementById("show").innerHTML = "Grade " + a;
+                }
+            }
+        
+        </script>
+    </body>
+</html>
